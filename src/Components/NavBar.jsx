@@ -7,7 +7,7 @@ function NavBar({ navigation }) {
 
 	const handleItemClick = (item) => {
 		if (item.url) {
-			// Navigate to URL (in a real app, you'd use a router here)
+			
 			console.log(`Navigating to: ${item.url}`);
 		} else if (item.children) {
 			setCurrentLevel([...currentLevel, item.children]);
