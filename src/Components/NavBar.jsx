@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { FaChevronRight,FaChevronLeft, FaLink } from "react-icons/fa6";
+import { useNavigation } from 'react-router-dom';
 
 function NavBar({ navigation }) {
 	const [currentLevel, setCurrentLevel] = useState([navigation]);
 	const [currentTitles, setCurrentTitles] = useState(navigation);
+  const navigate = use navigation();
 
 	const handleItemClick = (item) => {
-		if (item.url) {
-			
+		if (item.url) {
 			console.log(`Navigating to: ${item.url}`);
+      navigate('item.url');
 		} else if (item.children) {
 			setCurrentLevel([...currentLevel, item.children]);
 			setCurrentTitles(item.children);
