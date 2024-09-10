@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { FaChevronRight,FaChevronLeft, FaLink } from "react-icons/fa6";
-import { useNavigation } from 'react-router-dom';
+import { FaChevronRight, FaChevronLeft, FaLink } from "react-icons/fa6";
+// import { useNavigation } from "react-router-dom";
 
 function NavBar({ navigation }) {
 	const [currentLevel, setCurrentLevel] = useState([navigation]);
 	const [currentTitles, setCurrentTitles] = useState(navigation);
-  const navigate = use navigation();
+	// const navigate = useNavigation(); this will be used when the routes are set up
 
 	const handleItemClick = (item) => {
-		if (item.url) {
+		if (item.url) {
 			console.log(`Navigating to: ${item.url}`);
-      navigate('item.url');
+			// navigate("item.url");
 		} else if (item.children) {
 			setCurrentLevel([...currentLevel, item.children]);
 			setCurrentTitles(item.children);
@@ -43,8 +43,14 @@ function NavBar({ navigation }) {
 							className='w-full p-4 text-left border-b border-gray-200 hover:bg-gray-50'>
 							{item.title}
 							{item.children ? (
-								<span className='float-right'><FaChevronRigh className='mr-2' t/></span>
-							) : <span className='float-right'><FaLink className='mr-2' /></span>}
+								<span className='float-right'>
+									<FaChevronRight className='mr-2' />
+								</span>
+							) : (
+								<span className='float-right'>
+									<FaLink className='mr-2' />
+								</span>
+							)}
 						</button>
 					</li>
 				))}
